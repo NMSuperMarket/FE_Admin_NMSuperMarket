@@ -24,5 +24,30 @@ export const organizerApi = {
   getEventDetail: async (id) => {
     const response = await client.get(`/organizer/events/${id}`);
     return response.data;
+  },
+
+  createEvent: async (data) => {
+    const response = await client.post('/organizer/events', data);
+    return response.data;
+  },
+
+  updateEvent: async (id, data) => {
+    const response = await client.put(`/organizer/events/${id}`, data);
+    return response.data;
+  },
+
+  deleteEvent: async (id) => {
+    const response = await client.delete(`/organizer/events/${id}`);
+    return response.data;
+  },
+
+  publishEvent: async (id) => {
+    const response = await client.post(`/organizer/events/${id}/publish`);
+    return response.data;
+  },
+
+  cancelEvent: async (id, reason) => {
+    const response = await client.post(`/organizer/events/${id}/cancel`, { cancel_reason: reason });
+    return response.data;
   }
 };
