@@ -14,16 +14,16 @@ export const useAuthStore = create(
       clearAuth: () => set({ user: null, token: null }),
     }),
     {
-      name: 'auth-storage-organizer',
+      name: 'auth-storage-admin',
     }
   )
 );
 
 export const useIsLoggedIn = () => useAuthStore((state) => !!state.token);
 
-export const useIsOrganizer = () => useAuthStore((state) => {
+export const useIsAdmin = () => useAuthStore((state) => {
   const roleName = typeof state.user?.role === 'object' ? state.user?.role?.name : state.user?.role;
-  return roleName === 'organizer';
+  return roleName === 'admin';
 });
 
 export default useAuthStore;

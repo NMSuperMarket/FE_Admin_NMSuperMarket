@@ -15,4 +15,7 @@ export default defineConfig({
     port: 5174,
     strictPort: true,
   },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react/jsx-runtime', 'recharts', 'lucide-react']
+  },
 })
